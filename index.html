@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hundwa Maria Mater Dei – Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f0e1; --sage:#a9bfa3; --sage-d:#4d6b52; --ink:#26332a; --muted:#5f6d62;
+  --orange:#e87a3d; --glass:rgba(255,255,255,.38); --glass-b:rgba(255,255,255,.6); --shadow:rgba(60,80,60,.18);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#182019; --sage:#34493a; --sage-d:#9cc3a3; --ink:#eef1e6; --muted:#b4c0b3;
+  --glass:rgba(255,255,255,.07); --glass-b:rgba(255,255,255,.16); --shadow:rgba(0,0,0,.4);}}
+:root[data-theme="dark"]{--bg:#182019; --sage:#34493a; --sage-d:#9cc3a3; --ink:#eef1e6; --muted:#b4c0b3;--glass:rgba(255,255,255,.07); --glass-b:rgba(255,255,255,.16); --shadow:rgba(0,0,0,.4);}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.55;overflow-x:hidden;position:relative}
+h1,h2,h3{font-family:Comfortaa,Nunito,sans-serif;margin:0;line-height:1.2}
+/* soft organic blobs behind everything, so the glass has something to blur */
+.blob{position:fixed;z-index:-1;border-radius:50%;filter:blur(10px);background:var(--sage);opacity:.75}
+.b1{width:70vw;height:70vw;max-width:760px;max-height:760px;top:-18vw;right:-18vw}
+.b2{width:50vw;height:50vw;max-width:520px;max-height:520px;bottom:-14vw;left:-14vw}
+.i{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.logo .i{width:20px;height:20px}.mini .i{width:16px;height:16px}.values .i{width:30px;height:30px;color:var(--sage-d)}.skill .i{width:28px;height:28px}.thumb .i{width:36px;height:36px}.contact p{display:flex;align-items:center;gap:8px}.contact .i{color:var(--sage-d)}
+.portrait{position:relative;justify-self:center;width:100%;max-width:380px;padding:16px 22px 22px 16px}
+.photo{margin:0;position:relative;z-index:2;border-radius:190px 190px 36px 36px;overflow:hidden;border:6px solid var(--glass-b);box-shadow:0 26px 50px var(--shadow)}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:440/506;object-fit:cover}
+.ring{position:absolute;inset:16px 0 0 22px;border-radius:190px 190px 36px 36px;background:var(--sage);opacity:.85;z-index:1}
+.orb{position:absolute;z-index:1;top:34px;right:-4px;width:84px;height:84px;border-radius:50%;background:var(--orange);box-shadow:0 10px 24px rgba(232,122,61,.35)}
+.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:9px 15px;border-radius:30px;font:700 13px Nunito;color:var(--ink);background:color-mix(in srgb,var(--bg) 80%,transparent);border:1px solid var(--glass-b);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 24px var(--shadow)}
+.chip .i{width:16px;height:16px;color:var(--sage-d)}.chip .dot{width:9px;height:9px;border-radius:50%;background:#3fae5a;box-shadow:0 0 0 4px rgba(63,174,90,.25)}
+.c1{left:-6px;bottom:96px}.c2{right:2px;bottom:34px}
+.portrait{max-width:450px;padding:10px 30px 34px 12px}
+.photo{border:0;border-radius:56% 44% 40% 60% / 44% 52% 48% 56%;box-shadow:0 30px 60px var(--shadow)}
+.photo img{aspect-ratio:1/1.12}
+.ring{inset:0;border-radius:56% 44% 40% 60% / 44% 52% 48% 56%;transform:translate(28px,28px);opacity:1}
+.ring2{position:absolute;inset:0;z-index:1;border:2px solid var(--orange);border-radius:44% 56% 52% 48% / 52% 44% 56% 48%;transform:translate(-14px,-12px) rotate(-5deg)}
+.seal{position:absolute;z-index:4;left:-20px;bottom:44px;width:128px;height:128px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 14px 30px rgba(232,122,61,.4)}
+.seal .spin{position:absolute;inset:0;width:100%;height:100%;animation:spin 24s linear infinite}
+.seal text{fill:#fff;font:700 10px Nunito}
+.seal .core{width:30px;height:30px;color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.seal .spin{animation:none}}
+.c3{right:-8px;top:44px;bottom:auto;left:auto;border-radius:22px;padding:12px 18px;line-height:1.3}
+.c3 small{font-weight:600;color:var(--muted);font-size:12px}
+.logo i{width:44px;height:44px;padding:2px;background:var(--orange)}.logo i img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:2px solid var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.glass{background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 10px 30px var(--shadow);border-radius:26px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin:12px auto 0;max-width:1120px;padding:0 20px}
+header .glass{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;border-radius:40px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Comfortaa;font-weight:700}
+.logo i{width:38px;height:38px;border-radius:50%;background:var(--sage-d);color:var(--bg);display:grid;place-items:center;font-style:normal;font-size:15px}
+.logo small{display:block;font-family:Nunito;font-weight:400;font-size:12px;color:var(--muted)}
+nav{display:flex;gap:22px;font-weight:600;font-size:15px}
+nav a{color:var(--ink);text-decoration:none}nav a:hover{color:var(--orange)}
+.btn{display:inline-block;background:var(--orange);color:#fff;border:0;border-radius:14px;padding:13px 26px;font:700 15px Nunito;text-decoration:none;cursor:pointer;box-shadow:0 8px 18px rgba(232,122,61,.35)}
+.btn.sm{padding:9px 18px;border-radius:20px;font-size:14px}
+.btn.alt{background:var(--glass);color:var(--ink);box-shadow:none;border:1px solid var(--glass-b)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;padding:56px 0 40px}
+.hero h1{font-size:clamp(34px,5.4vw,58px);margin-bottom:18px}
+.hero p{color:var(--muted);font-size:18px;max-width:46ch;margin:0 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.mini{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.mini span{display:flex;align-items:center;gap:8px}
+.mini b{width:34px;height:34px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-b);display:grid;place-items:center;font-size:15px}
+.code{padding:22px 24px;font:14px/1.8 ui-monospace,Menlo,Consolas,monospace;position:relative;overflow-x:auto}
+.code .k{color:var(--orange)}.code .s{color:var(--sage-d)}.code .c{color:var(--muted)}
+.badge{position:absolute;right:16px;bottom:-16px;background:var(--sage-d);color:var(--bg);border-radius:16px;padding:8px 14px;font:700 13px Nunito}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:30px 0 50px}
+.values div{text-align:left}.values h3{font-size:16px;margin:10px 0 6px}.values p{margin:0;font-size:14px;color:var(--muted)}
+.values span{font-size:28px}
+section{padding:20px 0 40px}
+.panel{padding:30px}
+.skills{display:grid;grid-template-columns:230px repeat(3,1fr);gap:20px;align-items:center}
+.skills h2{font-size:26px;margin-bottom:8px}.skills .intro p{color:var(--muted);font-size:14px;margin:0 0 14px}
+.skill{padding:18px;text-align:center;border-radius:22px;background:var(--glass);border:1px solid var(--glass-b)}
+.skill .ic{width:64px;height:64px;margin:0 auto 10px;border-radius:50%;background:var(--sage-d);color:var(--bg);display:grid;place-items:center;font:700 20px Comfortaa}
+.skill h3{font-size:16px}.skill p{margin:4px 0 8px;font-size:13px;color:var(--muted)}
+.bar{height:6px;border-radius:6px;background:var(--glass-b);overflow:hidden}.bar i{display:block;height:100%;background:var(--orange);border-radius:6px}
+.skills-grid{grid-column:2 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.title{display:flex;align-items:center;gap:16px;margin:10px 0 22px}
+.title:before,.title:after{content:"";flex:1;height:1px;background:var(--sage-d);opacity:.4}
+.title h2{font-size:24px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj{padding:14px;display:flex;gap:14px;align-items:stretch}
+.thumb{width:92px;min-height:110px;border-radius:18px;display:grid;place-items:center;font:700 26px Comfortaa;color:#fff;flex:none}
+.proj h3{font-size:16px;margin-bottom:4px}.proj p{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{font-size:12px;font-weight:700;padding:3px 9px;border-radius:10px;background:var(--glass-b)}
+.proud{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
+.proud h2{font-size:28px;margin-bottom:12px}.proud p{color:var(--muted);max-width:50ch}
+.list{display:grid;gap:12px}.list div{padding:14px 18px;border-radius:18px;background:var(--glass);border:1px solid var(--glass-b);font-weight:600}
+.list small{display:block;font-weight:400;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;padding:30px}
+.contact h2{font-size:24px;margin-bottom:14px}.contact p{margin:6px 0;color:var(--muted)}
+.contact form{display:grid;gap:10px}
+input,textarea{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--glass-b);background:var(--glass);color:var(--ink);font:16px Nunito}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:24px 0 36px;font-size:13px;color:var(--muted)}
+#ok{font-size:14px;color:var(--sage-d);min-height:20px;font-weight:700}
+@media(max-width:900px){
+  nav{display:none}.hero,.proud,.contact{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}.skills-grid{grid-column:1;grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:560px){.skills-grid{grid-template-columns:1fr 1fr}.values{grid-template-columns:1fr}.hero{padding-top:34px}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
+<symbol id="i-term" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+</defs></svg>
+
+<header><div class="glass">
+  <div class="logo"><i><img src="data:image/jpeg;base64,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" alt="Hundwa"></i><div>Hundwa Maria Mater Dei<small>software developer</small></div></div>
+  <nav><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <a class="btn sm" href="#contact">Hire me</a>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Code you’ll enjoy using from the first click</h1>
+      <p>I’m a software developer building fast web and mobile apps with JavaScript, React, Node.js, PHP, Python and Dart.</p>
+      <div class="cta"><a class="btn" href="#projects">See my projects</a><a class="btn alt" href="#contact">Get in touch</a></div>
+      <div class="mini"><span><b><svg class="i"><use href="#i-zap"/></svg></b>Fast apps</span><span><b><svg class="i"><use href="#i-heart"/></svg></b>Clean code</span><span><b><svg class="i"><use href="#i-coffee"/></svg></b>Open communication</span></div>
+    </div>
+    
+  </div>
+
+  <div class="values">
+    <div><span><svg class="i"><use href="#i-leaf"/></svg></span><h3>Thoughtful architecture</h3><p>Simple structure that stays easy to change as projects grow.</p></div>
+    <div><span><svg class="i"><use href="#i-flame"/></svg></span><h3>Fast delivery</h3><p>Small, frequent releases so you see progress every week.</p></div>
+    <div><span><svg class="i"><use href="#i-layers"/></svg></span><h3>Full-stack range</h3><p>From the database and API to the screen your users tap.</p></div>
+    <div><span><svg class="i"><use href="#i-chat"/></svg></span><h3>Clear communication</h3><p>Plain updates, honest estimates, no surprises.</p></div>
+  </div>
+
+  <section id="skills">
+    <div class="glass panel skills">
+      <div class="intro"><h2>Skills &amp; tools</h2><p>The languages and frameworks I use every day.</p><a class="btn alt sm" href="#projects">See them in action</a></div>
+      <div class="skills-grid">
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-code"/></svg></div><h3>JavaScript</h3><p>Modern ES6+</p><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-layers"/></svg></div><h3>React</h3><p>Interfaces &amp; state</p><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-server"/></svg></div><h3>Node.js</h3><p>APIs &amp; services</p><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-db"/></svg></div><h3>PHP</h3><p>Backends &amp; CMS</p><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-term"/></svg></div><h3>Python</h3><p>Scripts &amp; automation</p><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="skill"><div class="ic"><svg class="i"><use href="#i-phone"/></svg></div><h3>Dart</h3><p>Mobile apps</p><div class="bar"><i style="width:78%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="title"><h2>Projects in progress</h2></div>
+    <div class="projects">
+      <div class="glass proj"><div class="thumb" style="background:#4d6b52"><svg class="i"><use href="#i-globe"/></svg></div><div><h3>Web app</h3><p>Currently building. Details coming soon.</p><div class="tags"><span>React</span><span>Node</span></div></div></div>
+      <div class="glass proj"><div class="thumb" style="background:#e87a3d"><svg class="i"><use href="#i-phone"/></svg></div><div><h3>Mobile app</h3><p>Currently building. Details coming soon.</p><div class="tags"><span>Dart</span><span>Mobile</span></div></div></div>
+      <div class="glass proj"><div class="thumb" style="background:#7d9a84"><svg class="i"><use href="#i-clock"/></svg></div><div><h3>Backend &amp; automation</h3><p>Currently building. Details coming soon.</p><div class="tags"><span>Python</span><span>PHP</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="glass panel proud">
+      <div><h2>How I work</h2><p>I take a project from idea to launch: I ask questions, build in small steps, test as I go, and share progress openly. You always know what’s done and what’s next.</p><br><a class="btn" href="#contact">Start a project</a></div>
+      <div class="list">
+        <div>Plan<small>Understand goals and scope</small></div>
+        <div>Build<small>Weekly working versions</small></div>
+        <div>Launch &amp; support<small>Deploy, monitor, improve</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="glass contact">
+      <div><h2>Let’s work together</h2><p><svg class="i"><use href="#i-pin"/></svg>Kigali, Rwanda</p><p><svg class="i"><use href="#i-mail"/></svg>you@example.com</p><p><svg class="i"><use href="#i-github"/></svg>github.com/yourname</p></div>
+      <form id="f">
+        <input required placeholder="Your name" aria-label="Your name">
+        <input required type="email" placeholder="Your email" aria-label="Your email">
+        <textarea rows="4" required placeholder="Tell me about your project" aria-label="Message"></textarea>
+        <button class="btn" type="submit">Send message</button><div id="ok" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Hundwa Maria Mater Dei</span><span>Built with HTML, CSS and a little coffee</span></footer>
+</main>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').textContent='Thanks! Connect this form to your email service to receive messages.';this.reset()});
+</script>
+</body>
+</html>
